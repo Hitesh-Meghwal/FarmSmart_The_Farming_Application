@@ -3,7 +3,7 @@
     <style name="Base.Theme.FarmSmart" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="android:statusBarColor">#89A223</item>
+        <item name="android:statusBarColor">#2e8b57 </item>
     </style>
 
     <style name="Theme.FarmSmart" parent="Base.Theme.FarmSmart" />
