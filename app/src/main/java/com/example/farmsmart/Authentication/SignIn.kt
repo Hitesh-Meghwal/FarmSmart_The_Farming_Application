@@ -1,4 +1,4 @@
-package com.example.farmsmart.Activity
+package com.example.farmsmart.Authentication
 
 import android.app.Dialog
 import android.content.Intent

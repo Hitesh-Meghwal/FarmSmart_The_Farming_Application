@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homefragment">
+    <fragment
+        android:id="@+id/homefragment"
+        android:name="com.example.farmsmart.Fragments.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/bookVehiclefragment"
+        android:name="com.example.farmsmart.Fragments.BookVehicle"
+        android:label="fragment_book_vehicle"
+        tools:layout="@layout/fragment_book_vehicle" />
+    <fragment
+        android:id="@+id/profilefragment"
+        android:name="com.example.farmsmart.Fragments.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/purchasefragment"
+        android:name="com.example.farmsmart.Fragments.Purchase"
+        android:label="fragment_purchase"
+        tools:layout="@layout/fragment_purchase" />
+    <fragment
+        android:id="@+id/readArticlesfragment"
+        android:name="com.example.farmsmart.Fragments.ReadArticles"
+        android:label="fragment_read_articles"
+        tools:layout="@layout/fragment_read_articles" />
+</navigation>
