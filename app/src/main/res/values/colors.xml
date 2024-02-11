@@ -5,4 +5,5 @@
     <color name="green">#2e8b57</color>
     <color name="grey">#808080</color>
     <color name="red">#F40C0C</color>
+    <color name="colorPrimaryDark">#0d0233</color>
 </resources>
