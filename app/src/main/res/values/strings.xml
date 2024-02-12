@@ -22,4 +22,10 @@
     <string name="profile">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="articles">Articles</string>
+    <string name="crops">Crops</string>
+    <string name="fruits">Fruits</string>
+    <string name="flowers">Flowers</string>
+    <string name="how_to_expand">How To Expand</string>
+    <string name="diseases">Diseases</string>
 </resources>
