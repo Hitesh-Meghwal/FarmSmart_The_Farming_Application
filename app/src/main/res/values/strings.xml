@@ -28,4 +28,6 @@
     <string name="flowers">Flowers</string>
     <string name="how_to_expand">How To Expand</string>
     <string name="diseases">Diseases</string>
+    <string name="vehicle">Vehicle</string>
+    <string name="products">Products</string>
 </resources>

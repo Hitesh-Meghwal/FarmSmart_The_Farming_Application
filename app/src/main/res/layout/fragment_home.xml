@@ -27,7 +27,6 @@
                 android:layout_height="120dp"
                 android:layout_marginTop="8dp"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -166,7 +165,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="8dp"
-                android:scrollbars="horizontal"
+                android:scrollbars="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvArticle">
@@ -175,7 +174,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:padding="8dp">
+                    android:padding="4dp">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardCrops"
@@ -191,8 +190,8 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
+                                android:layout_width="110dp"
+                                android:layout_height="110dp"
                                 android:scaleType="fitXY"
                                 android:src="@drawable/crops" />
 
@@ -223,8 +222,8 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
+                                android:layout_width="110dp"
+                                android:layout_height="110dp"
                                 android:scaleType="fitXY"
                                 android:src="@drawable/fruits" />
 
@@ -255,8 +254,8 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
+                                android:layout_width="110dp"
+                                android:layout_height="110dp"
                                 android:scaleType="fitXY"
                                 android:src="@drawable/flowers" />
 
@@ -287,8 +286,8 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
+                                android:layout_width="110dp"
+                                android:layout_height="110dp"
                                 android:scaleType="fitXY"
                                 android:src="@drawable/expand" />
 
@@ -319,8 +318,8 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
+                                android:layout_width="110dp"
+                                android:layout_height="110dp"
                                 android:scaleType="fitXY"
                                 android:src="@drawable/disease" />
 
@@ -339,6 +338,61 @@
                 </LinearLayout>
 
             </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/tvVehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:text="@string/vehicle"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/articlesCategory" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/vehicle_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvVehicle" />
+
+            <TextView
+                android:id="@+id/tvproducts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:text="@string/products"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vehicle_recyclerview" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/products_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvproducts" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
