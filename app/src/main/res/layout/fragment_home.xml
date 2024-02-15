@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:paddingHorizontal="8dp">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/weatherCard"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
@@ -141,7 +141,7 @@
                     
                 </RelativeLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/tvArticle"
@@ -174,9 +174,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:padding="4dp">
+                    android:padding="2dp">
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cardCrops"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -206,9 +206,9 @@
                         </LinearLayout>
 
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cardFruits"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -238,9 +238,9 @@
                         </LinearLayout>
 
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cardFlowers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -270,9 +270,9 @@
                         </LinearLayout>
 
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cardHowToExpand"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -302,9 +302,9 @@
                         </LinearLayout>
 
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cardDiseases"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -333,7 +333,7 @@
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
 
                 </LinearLayout>
 
@@ -362,6 +362,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="8dp"
                 android:orientation="horizontal"
+                tools:listitem="@layout/vehicle_cardlayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvVehicle" />
@@ -386,12 +387,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="8dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvproducts" />
+                app:layout_constraintTop_toBottomOf="@+id/tvproducts"
+                tools:listitem="@layout/products_cardlayout" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

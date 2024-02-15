@@ -17,7 +17,7 @@
     <string name="submit">Submit</string>
     <string name="home">Home</string>
     <string name="purchase">Purchase</string>
-    <string name="book_vehcile">Book Vehcile</string>
+    <string name="book_vehcile">Book Vehicle</string>
     <string name="read_articles">Read Articles</string>
     <string name="profile">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -30,4 +30,9 @@
     <string name="diseases">Diseases</string>
     <string name="vehicle">Vehicle</string>
     <string name="products">Products</string>
+    <string name="search">Search</string>
+    <string name="history">History</string>
+    <string name="cart">Cart</string>
+    <string name="options">Options</string>
+    <string name="buy_now">Buy Now</string>
 </resources>
