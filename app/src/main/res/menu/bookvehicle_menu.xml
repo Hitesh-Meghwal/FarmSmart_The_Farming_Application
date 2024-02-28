@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/locationfilter"
+        android:title="@string/location"
+        android:icon="@drawable/baseline_my_location_24"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/lowtohigh"
+        android:title="@string/low_to_high"
+        android:icon="@drawable/baseline_my_location_24"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/hightolow"
+        android:title="@string/high_to_low"
+        android:icon="@drawable/baseline_my_location_24"
+        app:showAsAction="never"
+        />
+
+
+</menu>
