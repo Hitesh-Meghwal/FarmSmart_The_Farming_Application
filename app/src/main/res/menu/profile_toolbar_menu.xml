@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/logout"
+        android:title="@string/log_out"
+        android:icon="@drawable/logout"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/language"
+        android:title="@string/language"
+        android:icon="@drawable/language"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/chatbot"
+        android:title="@string/chat_bot"
+        android:icon="@drawable/chatbot"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/popUpMenu"
+        android:title="@string/popupmenu"
+        android:icon="@drawable/three_dots_menu_icon"
+        app:showAsAction="always"
+        />
+
+</menu>

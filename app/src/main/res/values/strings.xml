@@ -78,4 +78,12 @@
     <string name="thane" translatable="false">Thane</string>
     <string name="looks_like_admin_haven_t_added_any_item_yet">Looks like Admin haven\'t added any item yet.</string>
     <string name="insect_and_control">Insect and Control</string>
+    <string name="log_out">Log out</string>
+    <string name="language">Language</string>
+    <string name="chat_bot">Chat Bot</string>
+    <string name="contact_us">Contact US</string>
+    <string name="about">About</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="popupmenu">PopUpMenu</string>
+    <string name="look_s_like_you_haven_t_add_anything_to_task_list">Look\'s like you haven\'t add anything to Task list</string>
 </resources>
