@@ -1,4 +1,4 @@
-package com.example.farmsmart.MainScreen
+package com.example.farmsmart.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

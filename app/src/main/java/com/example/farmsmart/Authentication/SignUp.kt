@@ -3,7 +3,7 @@ package com.example.farmsmart.Authentication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.farmsmart.MainScreen.MainScreen
+import com.example.farmsmart.Activity.MainScreen
 import com.example.farmsmart.databinding.ActivitySignUpBinding
 
 class SignUp : AppCompatActivity() {
@@ -19,7 +19,7 @@ class SignUp : AppCompatActivity() {
         }
 
         binding.signupBtn.setOnClickListener{
-            val mainScreen = Intent(this,MainScreen::class.java)
+            val mainScreen = Intent(this, MainScreen::class.java)
             startActivity(mainScreen)
         }
     }

@@ -86,4 +86,11 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="popupmenu">PopUpMenu</string>
     <string name="look_s_like_you_haven_t_add_anything_to_task_list">Look\'s like you haven\'t add anything to Task list</string>
+    <string name="create_new_routine">Create New Routine</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="priority">Priority</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="done">Done</string>
 </resources>
