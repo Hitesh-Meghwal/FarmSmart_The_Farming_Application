@@ -61,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:hint="@string/name"
+                app:hintTextColor="@color/green"
                 android:textColor="@color/black"
                 app:boxStrokeColor="@color/green"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +84,7 @@
                 android:layout_marginTop="10dp"
                 android:hint="@string/phone"
                 android:textColor="@color/black"
+                app:hintTextColor="@color/green"
                 app:boxStrokeColor="@color/green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +94,7 @@
                     android:id="@+id/phoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -104,6 +106,7 @@
                 android:layout_marginTop="10dp"
                 android:hint="@string/email_address"
                 app:boxStrokeColor="@color/green"
+                app:hintTextColor="@color/green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2">
@@ -123,6 +126,7 @@
                 android:layout_marginTop="10dp"
                 android:hint="@string/password"
                 app:boxStrokeColor="@color/green"
+                app:hintTextColor="@color/green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
@@ -167,7 +171,7 @@
             <View
                 android:id="@+id/view2"
                 android:layout_width="100dp"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:background="@color/grey"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textView3"
@@ -182,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/or_continue_with"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="19sp"
                 app:layout_constraintBottom_toBottomOf="@+id/view"
                 app:layout_constraintEnd_toEndOf="@+id/signup_btn"
                 app:layout_constraintStart_toStartOf="@+id/signup_btn"
@@ -191,7 +195,7 @@
             <View
                 android:id="@+id/view"
                 android:layout_width="100dp"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:background="@color/grey"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

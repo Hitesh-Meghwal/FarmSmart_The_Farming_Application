@@ -8,7 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
+import androidx.activity.addCallback
 import com.example.farmsmart.Activity.TaskAdd
+import com.example.farmsmart.Authentication.SignIn
+import com.example.farmsmart.FirebaseService.FirebaseService
 import com.example.farmsmart.R
 import com.example.farmsmart.databinding.FragmentProfileBinding
 import com.google.android.material.appbar.MaterialToolbar
@@ -36,6 +39,11 @@ class Profile : Fragment() {
         toolbar.setOnMenuItemClickListener { menuItem->
             when(menuItem.itemId){
                 R.id.logout->{
+                    val auth = FirebaseService.getAuthInstance()
+                    auth.signOut()
+                    val goToSign = Intent(requireContext(),SignIn::class.java)
+                    startActivity(goToSign)
+                    requireActivity().finish()
                     true
                 }
                 R.id.language->{
