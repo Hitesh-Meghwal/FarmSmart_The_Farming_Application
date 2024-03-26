@@ -1,4 +1,5 @@
 <resources>
+    <string name="default_web_client_id">274566840922-qiv58dt94m2ohrh6asinr5mir2tjmrp2.apps.googleusercontent.com</string>
     <string name="app_name">FarmSmart</string>
     <string name="sign_in">Sign In</string>
     <string name="welcome_back">Welcome Back !!</string>

@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
@@ -18,18 +19,30 @@ import com.example.farmsmart.FirebaseService.FirebaseService
 import com.example.farmsmart.Fragments.Home
 import com.example.farmsmart.R
 import com.example.farmsmart.databinding.ActivitySignInBinding
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 
 class SignIn : AppCompatActivity() {
     lateinit var binding: ActivitySignInBinding
     lateinit var progressDialog: ProgressDialog
+    private val RC_SIGN_IN = 1;
+    private val TAG = "GOOGLEAUTH";
+    lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         progressDialog = ProgressDialog(this)
+        auth = FirebaseService.getAuthInstance()
         val signUp = findViewById<TextView>(R.id.registerSignup)
         signUp.setOnClickListener {
             val i = Intent(this,SignUp::class.java)
@@ -40,6 +53,9 @@ class SignIn : AppCompatActivity() {
         }
         binding.signinBtn.setOnClickListener{
             signIn()
+        }
+        binding.googlesigninBtn.setOnClickListener{
+            googleSignIn()
         }
     }
 
@@ -72,7 +88,6 @@ class SignIn : AppCompatActivity() {
             binding.signinPassword.error = null
         }
 
-        val auth = FirebaseService.getAuthInstance()
         auth.signInWithEmailAndPassword(email,password)
             .addOnSuccessListener {
                 val goToHome = Intent(this,MainScreen::class.java)
@@ -90,6 +105,78 @@ class SignIn : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
         progressDialog.show()
 
+    }
+
+    private fun googleSignIn(){
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        val  mGoogleSignInClient = GoogleSignIn.getClient(this,gso)
+
+        val signInIntent = mGoogleSignInClient.signInIntent
+        startActivityForResult(signInIntent,RC_SIGN_IN)
+
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RC_SIGN_IN){
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)
+                handleSignResult(account)
+            }
+            catch (e:ApiException){
+                Log.d(TAG,"Google Sign in Failed $e")
+            }
+        }
+    }
+
+    private fun handleSignResult(account: GoogleSignInAccount){
+        val credential = GoogleAuthProvider.getCredential(account.idToken,null)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener { task->
+                if(task.isSuccessful){
+                    val user = auth.currentUser
+                    if (user != null) {
+                        addUsertoFirebase(user)
+                    }
+                }
+                else{
+                    Log.d(TAG,"SignInCredential:Failure",task.exception)
+                }
+            }
+    }
+
+    private fun addUsertoFirebase(user: FirebaseUser) {
+        val Usermap = hashMapOf(
+            "Name" to user.displayName,
+            "Email" to user.email,
+            "PhotoUrl" to user.photoUrl
+        )
+        val firestore = FirebaseService.getFirestoreInstance()
+        firestore.collection("GoogleSign UserDetails")
+            .document(user.uid)
+            .set(Usermap)
+            .addOnSuccessListener {
+                val goToHome = Intent(this,MainScreen::class.java)
+                startActivity(goToHome)
+                finish()
+                notifyUser("Signing Successfully")
+                progressDialog.cancel()
+            }
+            .addOnFailureListener {
+                notifyUser(it.message.toString())
+                progressDialog.cancel()
+            }
+        progressDialog.setMessage("Signing...")
+        progressDialog.setCanceledOnTouchOutside(false)
+        progressDialog.show()
     }
 
     private fun forgetPasswordDialog(){

@@ -12,7 +12,20 @@
           "package_name": "com.example.farmsmart"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "274566840922-5p6unafpivgr3dncd2qv8bkoeopr1io5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.farmsmart",
+            "certificate_hash": "bccdb99c6b36bd410bb7764482c8eabf72e52481"
+          }
+        },
+        {
+          "client_id": "274566840922-qiv58dt94m2ohrh6asinr5mir2tjmrp2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAw55imOoGPD4RHOFynD3jsiZ2tUtDWXbA"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "274566840922-qiv58dt94m2ohrh6asinr5mir2tjmrp2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

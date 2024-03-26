@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         btn.setOnClickListener{
             val i = Intent(this,SignIn::class.java)
             startActivity(i)
+            finish()
         }
     }
 }
