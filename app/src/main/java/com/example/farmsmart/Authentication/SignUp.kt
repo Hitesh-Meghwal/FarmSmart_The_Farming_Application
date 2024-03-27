@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.example.farmsmart.Activity.MainScreen
+import com.example.farmsmart.Dialog.LoadingUtils
 import com.example.farmsmart.FieldValidation.Validator
 import com.example.farmsmart.FirebaseService.FirebaseService
 import com.example.farmsmart.Fragments.Home
@@ -23,7 +24,6 @@ import com.google.firebase.auth.GoogleAuthProvider
 
 class SignUp : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
-    lateinit var progressDialog: ProgressDialog
     private val RC_SIGN_IN = 1;
     private val TAG = "GOOGLEAUTH";
     lateinit var auth: FirebaseAuth
@@ -31,7 +31,6 @@ class SignUp : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        progressDialog = ProgressDialog(this)
 
         binding.alreadyRegister.setOnClickListener {
             val goToSignin = Intent(this,SignIn::class.java)
@@ -91,10 +90,6 @@ class SignUp : AppCompatActivity() {
             binding.signupPassword.error = null
         }
 
-        progressDialog.setMessage("Signing...")
-        progressDialog.setCanceledOnTouchOutside(false)
-        progressDialog.show()
-
         val auth = FirebaseService.getAuthInstance()
         val firestore = FirebaseService.getFirestoreInstance()
         auth.createUserWithEmailAndPassword(email,password)
@@ -103,7 +98,7 @@ class SignUp : AppCompatActivity() {
                     .document(auth.uid.toString())
                     .set(UserModel(name,phoneNo,email,password))
                     .addOnCompleteListener {task->
-                        progressDialog.dismiss()
+                        LoadingUtils.hideDialog()
                         if (task.isSuccessful){
                             val goToHome = Intent(this,MainScreen::class.java)
                             startActivity(goToHome)
@@ -116,9 +111,10 @@ class SignUp : AppCompatActivity() {
                     }
             }
             .addOnFailureListener {
-                progressDialog.dismiss()
+                LoadingUtils.hideDialog()
                 notifyUser(it.message.toString())
             }
+        LoadingUtils.showDialog(this,true)
 
     }
 
@@ -183,15 +179,14 @@ class SignUp : AppCompatActivity() {
                 startActivity(goToHome)
                 finish()
                 notifyUser("Signing Successfully")
-                progressDialog.cancel()
+                LoadingUtils.hideDialog()
             }
             .addOnFailureListener {
                 notifyUser(it.message.toString())
-                progressDialog.cancel()
+                LoadingUtils.hideDialog()
             }
-        progressDialog.setMessage("Signing...")
-        progressDialog.setCanceledOnTouchOutside(false)
-        progressDialog.show()
+        LoadingUtils.showDialog(this,true)
+
     }
 
     private fun notifyUser(msg : String) {

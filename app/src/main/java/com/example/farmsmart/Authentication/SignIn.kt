@@ -14,6 +14,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.farmsmart.Activity.MainScreen
+import com.example.farmsmart.Dialog.LoadingUtils
 import com.example.farmsmart.FieldValidation.Validator
 import com.example.farmsmart.FirebaseService.FirebaseService
 import com.example.farmsmart.Fragments.Home
@@ -31,7 +32,6 @@ import com.google.firebase.auth.GoogleAuthProvider
 
 class SignIn : AppCompatActivity() {
     lateinit var binding: ActivitySignInBinding
-    lateinit var progressDialog: ProgressDialog
     private val RC_SIGN_IN = 1;
     private val TAG = "GOOGLEAUTH";
     lateinit var auth: FirebaseAuth
@@ -41,7 +41,6 @@ class SignIn : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        progressDialog = ProgressDialog(this)
         auth = FirebaseService.getAuthInstance()
         val signUp = findViewById<TextView>(R.id.registerSignup)
         signUp.setOnClickListener {
@@ -94,16 +93,15 @@ class SignIn : AppCompatActivity() {
                 startActivity(goToHome)
                 finish()
                 notifyUser("Signing Successfully")
-                progressDialog.cancel()
+                LoadingUtils.hideDialog()
             }
             .addOnFailureListener {
                 notifyUser(it.message.toString())
-                progressDialog.cancel()
+                LoadingUtils.hideDialog()
+
             }
 
-        progressDialog.setMessage("Signing...")
-        progressDialog.setCanceledOnTouchOutside(false)
-        progressDialog.show()
+        LoadingUtils.showDialog(this,true)
 
     }
 
@@ -168,15 +166,14 @@ class SignIn : AppCompatActivity() {
                 startActivity(goToHome)
                 finish()
                 notifyUser("Signing Successfully")
-                progressDialog.cancel()
+                LoadingUtils.hideDialog()
             }
             .addOnFailureListener {
                 notifyUser(it.message.toString())
-                progressDialog.cancel()
+                LoadingUtils.hideDialog()
             }
-        progressDialog.setMessage("Signing...")
-        progressDialog.setCanceledOnTouchOutside(false)
-        progressDialog.show()
+        LoadingUtils.showDialog(this,true)
+
     }
 
     private fun forgetPasswordDialog(){
